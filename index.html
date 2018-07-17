@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="./src/index.js"></script>
+    <script src="./src/observer.js"></script>
+    <script src="./src/compile.js"></script>
+    <script src="./src/watcher.js"></script>
+    <script src="./src/dep.js"></script>
+    <body>
+        <div id="app">
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">逆转1212321消息</button>
+        </div>
+    </body>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js!'
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split('').reverse().join('')
+                }
+            },
+            mounted: function () {
+                setTimeout(() => {
+                    this.message = 'I am changed after mounte';
+                }, 2000);
+            },
+        });
+    </script>
+
+</html>
